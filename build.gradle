@@ -1,0 +1,54 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.1'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'co.com.rapicredit'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation 'org.apache.poi:poi:4.0.0'
+	implementation 'org.apache.poi:poi-ooxml:4.0.0'
+	implementation 'org.springframework.boot:spring-boot-devtools'
+	//testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:3.0.6'
+	implementation 'org.springframework:spring-context-indexer:5.3.24'
+	implementation 'io.smallrye.reactive:mutiny:1.8.0'
+	implementation 'io.projectreactor:reactor-core:3.4.0'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.11'
+	implementation 'mysql:mysql-connector-java'
+
+	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'com.h2database:h2'
+	runtimeOnly 'mysql:mysql-connector-java'
+
+	implementation 'com.amazonaws:aws-java-sdk-s3:1.11.859'
+	implementation 'javax.persistence:javax.persistence-api:2.2'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	testImplementation 'com.jayway.jsonpath:json-path:2.4.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
